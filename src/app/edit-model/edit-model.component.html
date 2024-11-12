@@ -1,0 +1,46 @@
+<div class="container ">
+    <h2>{{ this.title }}</h2>
+  
+    <form (ngSubmit)="save()">
+      <div class="form-group">
+        <label for="name">Nombre</label>
+        <input type="text" class="form-control" id="name" [(ngModel)]="this.model.name"  name="name" required />
+      </div>
+  
+      <div class="form-group">
+        <label for="age">email</label>
+        <input type="text" type="email" class="form-control" id="email" [(ngModel)]="this.model.email" value="{{this.model.email}}"  name="email" required />
+      </div>
+      <div class="form-group">
+        <label for="age">password</label>
+        <input type="text" class="form-control" id="password" [(ngModel)]="this.model.password"  name="password" required />
+      </div>
+      <div class="form-group">
+        <label for="age">status</label>
+          <select [(ngModel)]="this.model.status" type="text" class="form-select" id="status"  name="status" required >
+            <option>Inactivo</option>
+            <option>Activo</option>
+          </select>
+      </div>
+      
+
+      <div *ngIf="message" class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Ok! </strong>  {{ message }}
+      </div>
+
+      <br>
+      <div *ngIf="errorMessage" class="alert alert-danger alert-dismissible fade show" role="alert">
+        <span aria-hidden="true">&times;</span>
+        <strong>Error! </strong>  {{ errorMessage }}
+      </div>
+      <br>
+      <div class="d-grid gap-2">
+          <button type="button" class="btn btn-success   " (click)="save()"> Guardar</button>
+          <button type="button" class="btn btn-secondary " (click)="cancel()">Cancelar</button>
+      </div>
+      
+      
+      
+    </form>
+  </div>
+  
